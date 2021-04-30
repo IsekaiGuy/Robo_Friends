@@ -1,6 +1,9 @@
-# robofriends
-Tutorial for React
-To run the project:
+<h2 align="center">Robo Friends</h3>
+
+<!-- ABOUT THE PROJECT -->
+![Alt text](/public/Robo-Friends.png?raw=true "Robo")
+
+## Getting Started
 
 1. Clone this repo
 2. Run `npm install`
