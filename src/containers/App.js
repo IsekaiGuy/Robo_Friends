@@ -8,24 +8,25 @@ const App = () => {
   const [state, setState] = useState({
       robots: [],
       searchfield: ''
-    })
+    });
   
 
   useEffect(() =>  {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response=> response.json())
-      .then(users => {setState((prevState) => ({ ...prevState, robots: users}))});
-  })
+      .then(users => setState(prevState => ({ ...prevState, robots: users})));
+  }, [])
 
   const onSearchChange = (event) => {
-    setState((prevState) => ({ ...prevState, searchfield: event.target.value })
-    )}
+    const newValue = event.target.value;
+    setState(prevState => ({ ...prevState, searchfield: newValue })
+    )};
 
   
     const filteredRobots = state.robots.filter(robot =>{
       return robot.name.toLowerCase().includes(state.searchfield.toLowerCase());
     })
-
+    
     return !state.robots.length ?
       <h1>Loading</h1> :
       (
