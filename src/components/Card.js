@@ -12,4 +12,4 @@ const Card = ({ name, email, id }) => {
   );
 }
 
-export default Card;
+export const MemoCard = React.memo(Card);
