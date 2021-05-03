@@ -2,11 +2,20 @@ import React, { useEffect } from 'react';
 import {connect} from "react-redux";
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
-// import Scroll from '../components/Scroll';
 import Header from "../components/Header";
+import {ErrorBoundary} from 'react-error-boundary'
 import './App.css';
 
 import { setSearchField, requestRobots} from "../actions";
+
+const OurFallbackComponent = ({ error, resetErrorBoundary }) => {
+  return (
+    <div>
+      <h1>An error occurred: {error.message}</h1>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -36,15 +45,13 @@ const App = (props) => {
     
     return props.isPending ?
       <h1>Loading</h1> :
-      (
-        <div className='tc'>
+      <div className='tc'>
           <Header />
-          <SearchBox searchChange={props.onSearchChange}/>
-          {/* <Scroll> */}
+          <SearchBox searchChange={props.onSearchChange} />
+          <ErrorBoundary FallbackComponent={OurFallbackComponent}>
             <CardList robots={filteredRobots} />
-          {/* </Scroll> */}
-        </div>
-      );
+          </ErrorBoundary>
+        </div>;
   }
 
 

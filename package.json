@@ -4,10 +4,12 @@
   "private": true,
   "homepage": "https://isekaiguy.github.io/Robo_Friends",
   "dependencies": {
+    "@babel/eslint-plugin": "^7.13.16",
     "@welldone-software/why-did-you-render": "^6.1.1",
     "gh-pages": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-error-boundary": "^3.1.1",
     "react-redux": "^7.2.4",
     "react-scripts": "^4.0.3",
     "redux": "^4.1.0",
